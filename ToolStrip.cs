@@ -33,8 +33,8 @@ namespace nsStockManage
 
                 if (Program.mw.checkBox_newToolsIn_batch.Checked == false)                                  //非批量入库
                 {
-                    Program.mw.textBox_newToolsIn_numberEnd.BackColor = System.Drawing.Color.LightGray;     //结尾编码变灰
-                    Program.mw.textBox_newToolsIn_numberEnd.ReadOnly = true;                                //结尾编码只读
+                    Program.mw.textBox_newToolsIn_endCode.BackColor = System.Drawing.Color.LightGray;     //结尾编码变灰
+                    Program.mw.textBox_newToolsIn_endCode.ReadOnly = true;                                //结尾编码只读
                 }
                 Program.mw.textBox_newToolsIn_code.Focus();                                                 //默认焦点置于二维码输入框
 

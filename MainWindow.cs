@@ -35,6 +35,7 @@ namespace nsMainWindow
             this.panel_toolsReturn.Visible = false;
             this.panel_repairtoolsIn.Visible = false;
             this.panel_outByTools.Visible = false;
+            this.panel_scrapTools.Visible = false;
         }
 
         //主窗口加载事件函数
@@ -55,7 +56,10 @@ namespace nsMainWindow
             //若已存在则导入，若无则弹出登陆界面
             //显示客户端名称
             this.statusStripStatusLabel1.Text = TerminalNumber;
-
+            System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();   //实例化一个timer
+            timer.Tick += new EventHandler(refreshAllTime);                                      //给timer关联函数
+            timer.Enabled = true;                                                 //使timer可用
+            timer.Interval = 60000;                                                //设置时间间隔，以毫秒为单位(以分钟为单位刷新)
             //检索预警项，显示报警信息
         }
 
@@ -67,6 +71,14 @@ namespace nsMainWindow
             ///需在程序关闭函数里添加对象回收语句
         }
 
+        //按分钟刷新所有panel时间
+        private void refreshAllTime(object sender,System.EventArgs e)
+        {
+            dateTimePicker_outByTools_borrowTime.Value = DateTime.Now;
+            dateTimePicker_toolsReturn_returnTime.Value = DateTime.Now;
+            dateTimePicker_repairtoolsIn_repairDate.Value = DateTime.Now;
+            dateTimePicker_newToolsIn_purchaseDate.Value =  DateTime.Now;
+        }
         /*****************************************主界面顶部 菜单栏*******************************************/
 
         nsStockManage.MenuStrip menuStrip = new nsStockManage.MenuStrip();
@@ -127,57 +139,53 @@ namespace nsMainWindow
 
         ToolsIn toolsIn = new ToolsIn();
         
-        private void checkBox_batch_CheckedChanged(object sender, EventArgs e)     //check_box状态变化
+        private void checkBox_batch_CheckedChanged(object sender, EventArgs e)              //批量入库复选框状态
         {
             toolsIn.checkBox_batch_CheckedChanged();
         }
-        private void textBox_newToolsIn_code_KeyPress(object sender, KeyPressEventArgs e)
+        private void textBox_newToolsIn_code_KeyPress(object sender, KeyPressEventArgs e)   //编码框回车处理
         {
             toolsIn.textBox_newToolsIn_code_KeyPress(e.KeyChar);
+        }
+        private void textBox_newToolsIn_code_Leave(object sender, EventArgs e)      //编码框失去焦点
+        {
+            toolsIn.textBox_newToolsIn_code_Leave();
+        }
+        private void textBox_newToolsIn_codeEnd_KeyPress(object sender, KeyPressEventArgs e)   //结尾编码框回车处理
+        {
+            toolsIn.textBox_newToolsIn_codeEnd_KeyPress(e.KeyChar);
+        }
+        private void textBox_newToolsIn_codeEnd_Leave(object sender, EventArgs e)   //结尾编码框失去焦点
+        {
+            toolsIn.textBox_newToolsIn_codeEnd_Leave();
         }
         private void comboBox_newToolsIn_lifetype_SelectedIndexChanged(object sender, EventArgs e)  //额定寿命类型选取
         {
             toolsIn.comboBox_newToolsIn_lifetype_SelectedIndexChanged();
         }
-        private void textBox_newToolsIn_lifespan_Enter(object sender, EventArgs e)
+        private void textBox_newToolsIn_lifespan_Enter(object sender, EventArgs e)      //额定寿命获得焦点
         {
             toolsIn.textBox_newToolsIn_lifespan_Enter();
         }
-        private void textBox_newToosIn_lifespan_Leave(object sender, EventArgs e)
+        private void textBox_newToosIn_lifespan_Leave(object sender, EventArgs e)      //额定寿命失去焦点
         {
             toolsIn.textBox_newToosIn_lifespan_Leave();
         }
-        private void textBox_newToosIn_price_Enter(object sender, EventArgs e)
+        private void textBox_newToosIn_price_Enter(object sender, EventArgs e)          //单价获得焦点
         {
             toolsIn.textBox_newToosIn_price_Enter();
         }
-        private void textBox_newToosIn_price_Leave(object sender, EventArgs e)
+        private void textBox_newToosIn_price_Leave(object sender, EventArgs e)          //单价失去焦点
         {
             toolsIn.textBox_newToosIn_price_Leave();
         }
-        private void textBox_newToosIn_operator_Enter(object sender, EventArgs e)
+        private void textBox_newToosIn_operator_Enter(object sender, EventArgs e)       //操作人获得焦点
         {
             toolsIn.textBox_newToosIn_operator_Enter();
         }
-        private void textBox_newToosIn_operator_Leave(object sender, EventArgs e)
+        private void textBox_newToosIn_operator_Leave(object sender, EventArgs e)       //操作人失去焦点
         {
             toolsIn.textBox_newToosIn_operator_Leave();
-        }
-
-        //新购工装入库确定按钮
-        private void button_newToosIn_enter_Click(object sender, EventArgs e)
-        {
-            if (toolsIn.newToolsIn_enter() == true)
-            {
-                toolsIn.newToolsInCleanAll();
-                textBox_newToolsIn_code.Focus();
-            }
-        }
-        //新购工装入库清空按钮
-        private void button_newToosIn_cancel_Click(object sender, EventArgs e)
-        {
-            toolsIn.newToolsInCleanAll();
-            textBox_newToolsIn_code.Focus();
         }
         
         //新购工装入库界面 限制编辑框输入内容
@@ -206,60 +214,75 @@ namespace nsMainWindow
                 e.Handled = true;
             }
         }
+        //新购工装入库确定按钮
+        private void button_newToosIn_enter_Click(object sender, EventArgs e)                   
+        {
+            if (toolsIn.newToolsIn_enter() == true)
+            {
+                toolsIn.newToolsInCleanAll();
+                textBox_newToolsIn_code.Focus();
+            }
+        }
+        //新购工装入库清空按钮
+        private void button_newToosIn_cancel_Click(object sender, EventArgs e)                  
+        {
+            toolsIn.newToolsInCleanAll();
+            textBox_newToolsIn_code.Focus();
+        }
+
 
         /********************************************************领用归还界面******************************************************/
 
-        //领用归还入库清空按钮
-        private void button_toolsReturn_cancel_Click(object sender, EventArgs e)
+        
+        private void button_toolsReturn_cancel_Click(object sender, EventArgs e)                   //领用归还入库清空按钮
         {
             toolsIn.toolsReturnCleanALL();
             textBox_toolsReturn_code.Focus();
         }
         
         //领用归还界面 限制编辑框输入内容
-        private void textBox_toolsReturn_return_KeyPress(object sender, KeyPressEventArgs e)               //限制归还人编辑框只能输入数字
+        private void textBox_toolsReturn_return_KeyPress(object sender, KeyPressEventArgs e)       //限制归还人编辑框只能输入数字
         {
             if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (Char)8)
             {
                 e.Handled = true;
             }
         }
-        private void textBox_toolsReturn_contact_KeyPress(object sender, KeyPressEventArgs e)              //限制归还人联系方式编辑框只能输入数字
+        private void textBox_toolsReturn_contact_KeyPress(object sender, KeyPressEventArgs e)      //限制归还人联系方式编辑框只能输入数字
         {
             if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (Char)8)
             {
                 e.Handled = true;
             }
         }
-        private void textBox_toolsReturn_operator_KeyPress(object sender, KeyPressEventArgs e)             //限制操作人编辑框只能输入数字
+        private void textBox_toolsReturn_operator_KeyPress(object sender, KeyPressEventArgs e)     //限制操作人编辑框只能输入数字
         {
             if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (Char)8)
             {
                 e.Handled = true;
             }
         }
-        private void textBox_toolsReturnOperator_contact_KeyPress(object sender, KeyPressEventArgs e)      //限制操作人联系方式编辑框只能输入数字
+        private void textBox_toolsReturnOperator_contact_KeyPress(object sender, KeyPressEventArgs e)  //限制操作人联系方式编辑框只能输入数字
         {
             if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (Char)8)
             {
                 e.Handled = true;
             }
         }
-        //领用归还界面 归还人 文本框默认值函数
-        private void textBox_toolsReturn_return_Enter(object sender, EventArgs e)
+        //领用归还界面 文本框默认值函数
+        private void textBox_toolsReturn_return_Enter(object sender, EventArgs e)       //归还人获得焦点
         {
             toolsIn.textBox_toolsReturn_return_Enter();
         }
-        private void textBox_toolsReturn_return_Leave(object sender, EventArgs e)
+        private void textBox_toolsReturn_return_Leave(object sender, EventArgs e)       //归还人失去焦点
         {
             toolsIn.textBox_toolsReturn_return_Leave();
         }
-        //领用归还界面 操作人 文本框默认值函数
-        private void textBox_toolsReturn_operator_Enter(object sender, EventArgs e)
+        private void textBox_toolsReturn_operator_Enter(object sender, EventArgs e)     //操作人获得焦点
         {
             toolsIn.textBox_toolsReturn_operator_Enter();
         }
-        private void textBox_toolsReturn_operator_Leave(object sender, EventArgs e)
+        private void textBox_toolsReturn_operator_Leave(object sender, EventArgs e)     //操作人失去焦点
         {
             toolsIn.textBox_toolsReturn_operator_Leave();
         }
@@ -277,39 +300,38 @@ namespace nsMainWindow
             toolsIn.toolsRepairCleanALL();
             textBox_repairtoolsIn_code.Focus();
         }
-        private void textBox_repairtoolsIn_contact_KeyPress(object sender, KeyPressEventArgs e)           //限制操作人联系方式编辑框只能输入数字
+        private void textBox_repairtoolsIn_contact_KeyPress(object sender, KeyPressEventArgs e)    //限制操作人联系方式编辑框只能输入数字
         {
             if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (Char)8)
             {
                 e.Handled = true;
             }
         }
-        private void textBox_repairtoolsIn_operator_KeyPress(object sender, KeyPressEventArgs e)           //限制操作人编辑框只能输入数字
+        private void textBox_repairtoolsIn_operator_KeyPress(object sender, KeyPressEventArgs e)   //限制操作人编辑框只能输入数字
         {
             if (!(Char.IsNumber(e.KeyChar)) && e.KeyChar != (Char)8)
             {
                 e.Handled = true;
             }
         }
-        //维修入库界面 操作人 文本框默认值函数
-        private void textBox_repairtoolsIn_operator_Leave(object sender, EventArgs e)
-        {
-            toolsIn.textBox_repairtoolsIn_operator_Leave();
-        }
-        private void textBox_repairtoolsIn_operator_Enter(object sender, EventArgs e)
+        //维修入库界面 文本框默认值函数
+        private void textBox_repairtoolsIn_operator_Enter(object sender, EventArgs e)       //操作人获得焦点
         {
             toolsIn.textBox_repairtoolsIn_operator_Enter();
         }
-        //维修入库界面 额定寿命 文本框默认值函数
-        private void textBox_repairtoolsIn_lifespan_Leave(object sender, EventArgs e)
+        private void textBox_repairtoolsIn_operator_Leave(object sender, EventArgs e)       //操作人失去焦点
         {
-            toolsIn.textBox_repairtoolsIn_lifespan_Leave();
+            toolsIn.textBox_repairtoolsIn_operator_Leave();
         }
-        private void textBox_repairtoolsIn_lifespan_Enter(object sender, EventArgs e)
+        private void textBox_repairtoolsIn_lifespan_Enter(object sender, EventArgs e)       //额定寿命获得焦点
         {
             toolsIn.textBox_repairtoolsIn_lifespan_Enter();
         }
-        private void comboBox_repairtoolsIn_lifetype_TextChanged(object sender, EventArgs e)
+        private void textBox_repairtoolsIn_lifespan_Leave(object sender, EventArgs e)       //额定寿命失去焦点
+        {
+            toolsIn.textBox_repairtoolsIn_lifespan_Leave();
+        }
+        private void comboBox_repairtoolsIn_lifetype_TextChanged(object sender, EventArgs e)//寿命类型改变
         {
             if(comboBox_repairtoolsIn_lifetype.Text == "时间")
             {
@@ -319,6 +341,30 @@ namespace nsMainWindow
             {
                 textBox_repairtoolsIn_lifespan.Text = "次 ";
             }
+        }
+
+        ToolsOut toolsOut = new ToolsOut();
+        /********************************************************按照工装方式出库界面******************************************************/
+        private void textBox_outByTools_borrower_Enter(object sender, EventArgs e)
+        {
+            toolsOut.textBox_outByTools_borrower_Enter();
+        }
+        private void textBox_outByTools_borrower_Leave(object sender, EventArgs e)
+        {
+            toolsOut.textBox_outByTools_borrower_Leave();
+        }
+        private void textBox_outByTools_operator_Enter(object sender, EventArgs e)
+        {
+            toolsOut.textBox_outByTools_operator_Enter();
+        }
+        private void textBox_outByTools_operator_Leave(object sender, EventArgs e)
+        {
+            toolsOut.textBox_outByTools_operator_Leave();
+        }
+        //清空所有内容
+        private void button_outByTools_Clear_Click(object sender, EventArgs e)
+        {
+            toolsOut.outByToolsCleanAll();
         }
     }
 }

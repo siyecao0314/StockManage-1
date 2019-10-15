@@ -71,7 +71,7 @@
             this.textBox_newToolsIn_code = new System.Windows.Forms.TextBox();
             this.label_newToolsIn_purchaseDate = new System.Windows.Forms.Label();
             this.label_newToolsIn_contact = new System.Windows.Forms.Label();
-            this.textBox_newToolsIn_numberEnd = new System.Windows.Forms.TextBox();
+            this.textBox_newToolsIn_endCode = new System.Windows.Forms.TextBox();
             this.label_newToolsIn_name = new System.Windows.Forms.Label();
             this.checkBox_newToolsIn_batch = new System.Windows.Forms.CheckBox();
             this.label_newToolsIn_operator = new System.Windows.Forms.Label();
@@ -198,6 +198,7 @@
             this.button_outByTools_Enter = new System.Windows.Forms.Button();
             this.label_outByTools_toolName = new System.Windows.Forms.Label();
             this.label_outByTools_code = new System.Windows.Forms.Label();
+            this.panel_scrapTools = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.panel_newtoolsIn.SuspendLayout();
@@ -384,7 +385,7 @@
             this.panel_newtoolsIn.Controls.Add(this.textBox_newToolsIn_code);
             this.panel_newtoolsIn.Controls.Add(this.label_newToolsIn_purchaseDate);
             this.panel_newtoolsIn.Controls.Add(this.label_newToolsIn_contact);
-            this.panel_newtoolsIn.Controls.Add(this.textBox_newToolsIn_numberEnd);
+            this.panel_newtoolsIn.Controls.Add(this.textBox_newToolsIn_endCode);
             this.panel_newtoolsIn.Controls.Add(this.label_newToolsIn_name);
             this.panel_newtoolsIn.Controls.Add(this.checkBox_newToolsIn_batch);
             this.panel_newtoolsIn.Controls.Add(this.label_newToolsIn_operator);
@@ -404,11 +405,11 @@
             // 
             // dateTimePicker_newToolsIn_purchaseDate
             // 
-            this.dateTimePicker_newToolsIn_purchaseDate.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker_newToolsIn_purchaseDate.CustomFormat = "yyyy-MM-dd HH:mm";
             this.dateTimePicker_newToolsIn_purchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_newToolsIn_purchaseDate.Location = new System.Drawing.Point(465, 93);
             this.dateTimePicker_newToolsIn_purchaseDate.Name = "dateTimePicker_newToolsIn_purchaseDate";
-            this.dateTimePicker_newToolsIn_purchaseDate.Size = new System.Drawing.Size(103, 23);
+            this.dateTimePicker_newToolsIn_purchaseDate.Size = new System.Drawing.Size(143, 23);
             this.dateTimePicker_newToolsIn_purchaseDate.TabIndex = 8;
             // 
             // listView_newToolsIn
@@ -428,7 +429,7 @@
             this.comboBox_newToolsIn_lifetype.Items.AddRange(new object[] {
             "时间",
             "次数"});
-            this.comboBox_newToolsIn_lifetype.Location = new System.Drawing.Point(655, 92);
+            this.comboBox_newToolsIn_lifetype.Location = new System.Drawing.Point(688, 92);
             this.comboBox_newToolsIn_lifetype.Name = "comboBox_newToolsIn_lifetype";
             this.comboBox_newToolsIn_lifetype.Size = new System.Drawing.Size(73, 25);
             this.comboBox_newToolsIn_lifetype.TabIndex = 9;
@@ -464,7 +465,7 @@
             this.textBox_newToolsIn_price.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_newToolsIn_price.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_newToolsIn_price.ForeColor = System.Drawing.Color.Gray;
-            this.textBox_newToolsIn_price.Location = new System.Drawing.Point(939, 92);
+            this.textBox_newToolsIn_price.Location = new System.Drawing.Point(972, 92);
             this.textBox_newToolsIn_price.Name = "textBox_newToolsIn_price";
             this.textBox_newToolsIn_price.Size = new System.Drawing.Size(76, 23);
             this.textBox_newToolsIn_price.TabIndex = 11;
@@ -478,7 +479,7 @@
             // 
             this.textBox_newToolsIn_layer.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_newToolsIn_layer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_newToolsIn_layer.Location = new System.Drawing.Point(939, 128);
+            this.textBox_newToolsIn_layer.Location = new System.Drawing.Point(972, 128);
             this.textBox_newToolsIn_layer.Name = "textBox_newToolsIn_layer";
             this.textBox_newToolsIn_layer.Size = new System.Drawing.Size(76, 23);
             this.textBox_newToolsIn_layer.TabIndex = 17;
@@ -487,7 +488,7 @@
             // 
             this.textBox_newToolsIn_shelf.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_newToolsIn_shelf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_newToolsIn_shelf.Location = new System.Drawing.Point(808, 128);
+            this.textBox_newToolsIn_shelf.Location = new System.Drawing.Point(841, 128);
             this.textBox_newToolsIn_shelf.Name = "textBox_newToolsIn_shelf";
             this.textBox_newToolsIn_shelf.Size = new System.Drawing.Size(73, 23);
             this.textBox_newToolsIn_shelf.TabIndex = 16;
@@ -496,7 +497,7 @@
             // 
             this.textBox_newToolsIn_area.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_newToolsIn_area.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_newToolsIn_area.Location = new System.Drawing.Point(655, 129);
+            this.textBox_newToolsIn_area.Location = new System.Drawing.Point(688, 129);
             this.textBox_newToolsIn_area.Name = "textBox_newToolsIn_area";
             this.textBox_newToolsIn_area.Size = new System.Drawing.Size(73, 23);
             this.textBox_newToolsIn_area.TabIndex = 15;
@@ -506,7 +507,7 @@
             this.textBox_newToolsIn_lifespan.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_newToolsIn_lifespan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_newToolsIn_lifespan.ForeColor = System.Drawing.Color.Gray;
-            this.textBox_newToolsIn_lifespan.Location = new System.Drawing.Point(808, 93);
+            this.textBox_newToolsIn_lifespan.Location = new System.Drawing.Point(841, 93);
             this.textBox_newToolsIn_lifespan.Name = "textBox_newToolsIn_lifespan";
             this.textBox_newToolsIn_lifespan.Size = new System.Drawing.Size(73, 23);
             this.textBox_newToolsIn_lifespan.TabIndex = 10;
@@ -523,7 +524,7 @@
             this.textBox_newToolsIn_contact.Location = new System.Drawing.Point(465, 129);
             this.textBox_newToolsIn_contact.MaxLength = 11;
             this.textBox_newToolsIn_contact.Name = "textBox_newToolsIn_contact";
-            this.textBox_newToolsIn_contact.Size = new System.Drawing.Size(103, 23);
+            this.textBox_newToolsIn_contact.Size = new System.Drawing.Size(143, 23);
             this.textBox_newToolsIn_contact.TabIndex = 14;
             this.textBox_newToolsIn_contact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_newToolsIn_contact_KeyPress);
             // 
@@ -556,7 +557,7 @@
             // 
             this.label_newToolsIn_layer.AutoSize = true;
             this.label_newToolsIn_layer.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_layer.Location = new System.Drawing.Point(900, 130);
+            this.label_newToolsIn_layer.Location = new System.Drawing.Point(933, 130);
             this.label_newToolsIn_layer.Name = "label_newToolsIn_layer";
             this.label_newToolsIn_layer.Size = new System.Drawing.Size(44, 17);
             this.label_newToolsIn_layer.TabIndex = 0;
@@ -585,7 +586,7 @@
             // 
             this.label_newToolsIn_shelf.AutoSize = true;
             this.label_newToolsIn_shelf.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_shelf.Location = new System.Drawing.Point(768, 131);
+            this.label_newToolsIn_shelf.Location = new System.Drawing.Point(801, 131);
             this.label_newToolsIn_shelf.Name = "label_newToolsIn_shelf";
             this.label_newToolsIn_shelf.Size = new System.Drawing.Size(44, 17);
             this.label_newToolsIn_shelf.TabIndex = 0;
@@ -605,7 +606,7 @@
             // 
             this.label_newToolsIn_price.AutoSize = true;
             this.label_newToolsIn_price.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_price.Location = new System.Drawing.Point(900, 96);
+            this.label_newToolsIn_price.Location = new System.Drawing.Point(933, 96);
             this.label_newToolsIn_price.Name = "label_newToolsIn_price";
             this.label_newToolsIn_price.Size = new System.Drawing.Size(44, 17);
             this.label_newToolsIn_price.TabIndex = 0;
@@ -615,7 +616,7 @@
             // 
             this.label_newToolsIn_area.AutoSize = true;
             this.label_newToolsIn_area.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_area.Location = new System.Drawing.Point(605, 132);
+            this.label_newToolsIn_area.Location = new System.Drawing.Point(641, 132);
             this.label_newToolsIn_area.Name = "label_newToolsIn_area";
             this.label_newToolsIn_area.Size = new System.Drawing.Size(44, 17);
             this.label_newToolsIn_area.TabIndex = 0;
@@ -625,7 +626,7 @@
             // 
             this.label_newToolsIn_lifetype.AutoSize = true;
             this.label_newToolsIn_lifetype.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_lifetype.Location = new System.Drawing.Point(581, 96);
+            this.label_newToolsIn_lifetype.Location = new System.Drawing.Point(617, 96);
             this.label_newToolsIn_lifetype.Name = "label_newToolsIn_lifetype";
             this.label_newToolsIn_lifetype.Size = new System.Drawing.Size(68, 17);
             this.label_newToolsIn_lifetype.TabIndex = 0;
@@ -644,7 +645,7 @@
             // 
             this.label_newToolsIn_lifespan.AutoSize = true;
             this.label_newToolsIn_lifespan.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_lifespan.Location = new System.Drawing.Point(744, 96);
+            this.label_newToolsIn_lifespan.Location = new System.Drawing.Point(777, 96);
             this.label_newToolsIn_lifespan.Name = "label_newToolsIn_lifespan";
             this.label_newToolsIn_lifespan.Size = new System.Drawing.Size(68, 17);
             this.label_newToolsIn_lifespan.TabIndex = 0;
@@ -654,7 +655,7 @@
             // 
             this.textBox_newToolsIn_toolName.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_newToolsIn_toolName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_newToolsIn_toolName.Location = new System.Drawing.Point(91, 54);
+            this.textBox_newToolsIn_toolName.Location = new System.Drawing.Point(91, 17);
             this.textBox_newToolsIn_toolName.Name = "textBox_newToolsIn_toolName";
             this.textBox_newToolsIn_toolName.Size = new System.Drawing.Size(286, 23);
             this.textBox_newToolsIn_toolName.TabIndex = 2;
@@ -663,7 +664,7 @@
             // 
             this.textBox_newToolsIn_code.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_newToolsIn_code.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_newToolsIn_code.Location = new System.Drawing.Point(91, 18);
+            this.textBox_newToolsIn_code.Location = new System.Drawing.Point(91, 54);
             this.textBox_newToolsIn_code.Name = "textBox_newToolsIn_code";
             this.textBox_newToolsIn_code.Size = new System.Drawing.Size(286, 23);
             this.textBox_newToolsIn_code.TabIndex = 2;
@@ -677,7 +678,7 @@
             this.label_newToolsIn_purchaseDate.Name = "label_newToolsIn_purchaseDate";
             this.label_newToolsIn_purchaseDate.Size = new System.Drawing.Size(68, 17);
             this.label_newToolsIn_purchaseDate.TabIndex = 0;
-            this.label_newToolsIn_purchaseDate.Text = "购入日期：";
+            this.label_newToolsIn_purchaseDate.Text = "购入时间：";
             // 
             // label_newToolsIn_contact
             // 
@@ -689,14 +690,14 @@
             this.label_newToolsIn_contact.TabIndex = 0;
             this.label_newToolsIn_contact.Text = "联系方式：";
             // 
-            // textBox_newToolsIn_numberEnd
+            // textBox_newToolsIn_endCode
             // 
-            this.textBox_newToolsIn_numberEnd.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox_newToolsIn_numberEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_newToolsIn_numberEnd.Location = new System.Drawing.Point(465, 55);
-            this.textBox_newToolsIn_numberEnd.Name = "textBox_newToolsIn_numberEnd";
-            this.textBox_newToolsIn_numberEnd.Size = new System.Drawing.Size(263, 23);
-            this.textBox_newToolsIn_numberEnd.TabIndex = 4;
+            this.textBox_newToolsIn_endCode.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox_newToolsIn_endCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox_newToolsIn_endCode.Location = new System.Drawing.Point(465, 55);
+            this.textBox_newToolsIn_endCode.Name = "textBox_newToolsIn_endCode";
+            this.textBox_newToolsIn_endCode.Size = new System.Drawing.Size(263, 23);
+            this.textBox_newToolsIn_endCode.TabIndex = 4;
             // 
             // label_newToolsIn_name
             // 
@@ -748,7 +749,7 @@
             this.button_newToolsIn_cancel.Name = "button_newToolsIn_cancel";
             this.button_newToolsIn_cancel.Size = new System.Drawing.Size(64, 30);
             this.button_newToolsIn_cancel.TabIndex = 20;
-            this.button_newToolsIn_cancel.Text = "清 空";
+            this.button_newToolsIn_cancel.Text = "清  空";
             this.button_newToolsIn_cancel.UseVisualStyleBackColor = false;
             this.button_newToolsIn_cancel.Click += new System.EventHandler(this.button_newToosIn_cancel_Click);
             // 
@@ -780,7 +781,7 @@
             this.button_newToolsIn_enter.Name = "button_newToolsIn_enter";
             this.button_newToolsIn_enter.Size = new System.Drawing.Size(63, 30);
             this.button_newToolsIn_enter.TabIndex = 19;
-            this.button_newToolsIn_enter.Text = "确 定";
+            this.button_newToolsIn_enter.Text = "入  库";
             this.button_newToolsIn_enter.UseVisualStyleBackColor = false;
             this.button_newToolsIn_enter.Click += new System.EventHandler(this.button_newToosIn_enter_Click);
             // 
@@ -788,7 +789,7 @@
             // 
             this.label_newToolsIn_toolName.AutoSize = true;
             this.label_newToolsIn_toolName.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_toolName.Location = new System.Drawing.Point(20, 57);
+            this.label_newToolsIn_toolName.Location = new System.Drawing.Point(20, 21);
             this.label_newToolsIn_toolName.Name = "label_newToolsIn_toolName";
             this.label_newToolsIn_toolName.Size = new System.Drawing.Size(68, 17);
             this.label_newToolsIn_toolName.TabIndex = 0;
@@ -798,7 +799,7 @@
             // 
             this.label_newToolsIn_codeStart.AutoSize = true;
             this.label_newToolsIn_codeStart.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_newToolsIn_codeStart.Location = new System.Drawing.Point(20, 21);
+            this.label_newToolsIn_codeStart.Location = new System.Drawing.Point(24, 56);
             this.label_newToolsIn_codeStart.Name = "label_newToolsIn_codeStart";
             this.label_newToolsIn_codeStart.Size = new System.Drawing.Size(52, 17);
             this.label_newToolsIn_codeStart.TabIndex = 0;
@@ -852,11 +853,11 @@
             // 
             // dateTimePicker_toolsReturn_returnTime
             // 
-            this.dateTimePicker_toolsReturn_returnTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker_toolsReturn_returnTime.CustomFormat = "yyyy-MM-dd HH:mm";
             this.dateTimePicker_toolsReturn_returnTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePicker_toolsReturn_returnTime.Location = new System.Drawing.Point(617, 90);
             this.dateTimePicker_toolsReturn_returnTime.Name = "dateTimePicker_toolsReturn_returnTime";
-            this.dateTimePicker_toolsReturn_returnTime.Size = new System.Drawing.Size(157, 23);
+            this.dateTimePicker_toolsReturn_returnTime.Size = new System.Drawing.Size(149, 23);
             this.dateTimePicker_toolsReturn_returnTime.TabIndex = 47;
             // 
             // listView_toolsReturn
@@ -1179,7 +1180,7 @@
             this.button_toolsReturn_cancel.Name = "button_toolsReturn_cancel";
             this.button_toolsReturn_cancel.Size = new System.Drawing.Size(64, 26);
             this.button_toolsReturn_cancel.TabIndex = 22;
-            this.button_toolsReturn_cancel.Text = "清 空";
+            this.button_toolsReturn_cancel.Text = "清  空";
             this.button_toolsReturn_cancel.UseVisualStyleBackColor = false;
             this.button_toolsReturn_cancel.Click += new System.EventHandler(this.button_toolsReturn_cancel_Click);
             // 
@@ -1201,7 +1202,7 @@
             this.button_toolsReturn_enter.Name = "button_toolsReturn_enter";
             this.button_toolsReturn_enter.Size = new System.Drawing.Size(63, 26);
             this.button_toolsReturn_enter.TabIndex = 23;
-            this.button_toolsReturn_enter.Text = "确 定";
+            this.button_toolsReturn_enter.Text = "入  库";
             this.button_toolsReturn_enter.UseVisualStyleBackColor = false;
             // 
             // label_toolsReturn_toolName
@@ -1220,9 +1221,9 @@
             this.label_toolsReturn_code.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.label_toolsReturn_code.Location = new System.Drawing.Point(20, 18);
             this.label_toolsReturn_code.Name = "label_toolsReturn_code";
-            this.label_toolsReturn_code.Size = new System.Drawing.Size(44, 17);
+            this.label_toolsReturn_code.Size = new System.Drawing.Size(56, 17);
             this.label_toolsReturn_code.TabIndex = 5;
-            this.label_toolsReturn_code.Text = "编码：";
+            this.label_toolsReturn_code.Text = "编   码：";
             // 
             // toolStripButton1
             // 
@@ -1335,7 +1336,7 @@
             this.button_Clear.Name = "button_Clear";
             this.button_Clear.Size = new System.Drawing.Size(64, 30);
             this.button_Clear.TabIndex = 58;
-            this.button_Clear.Text = "清 空";
+            this.button_Clear.Text = "清  空";
             this.button_Clear.UseVisualStyleBackColor = false;
             this.button_Clear.Click += new System.EventHandler(this.button_Clear_Click);
             // 
@@ -1347,7 +1348,7 @@
             this.button_Enter.Name = "button_Enter";
             this.button_Enter.Size = new System.Drawing.Size(63, 30);
             this.button_Enter.TabIndex = 57;
-            this.button_Enter.Text = "确 定";
+            this.button_Enter.Text = "入  库";
             this.button_Enter.UseVisualStyleBackColor = false;
             this.button_Enter.Click += new System.EventHandler(this.button_Enter_Click);
             // 
@@ -1380,11 +1381,11 @@
             // 
             // dateTimePicker_repairtoolsIn_repairDate
             // 
-            this.dateTimePicker_repairtoolsIn_repairDate.CustomFormat = "yyyy-MM-dd";
+            this.dateTimePicker_repairtoolsIn_repairDate.CustomFormat = "yyyy-MM-dd HH:mm";
             this.dateTimePicker_repairtoolsIn_repairDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_repairtoolsIn_repairDate.Location = new System.Drawing.Point(474, 64);
+            this.dateTimePicker_repairtoolsIn_repairDate.Location = new System.Drawing.Point(449, 64);
             this.dateTimePicker_repairtoolsIn_repairDate.Name = "dateTimePicker_repairtoolsIn_repairDate";
-            this.dateTimePicker_repairtoolsIn_repairDate.Size = new System.Drawing.Size(103, 23);
+            this.dateTimePicker_repairtoolsIn_repairDate.Size = new System.Drawing.Size(141, 23);
             this.dateTimePicker_repairtoolsIn_repairDate.TabIndex = 43;
             // 
             // comboBox_repairtoolsIn_lifetype
@@ -1394,7 +1395,7 @@
             this.comboBox_repairtoolsIn_lifetype.Items.AddRange(new object[] {
             "时间",
             "次数"});
-            this.comboBox_repairtoolsIn_lifetype.Location = new System.Drawing.Point(664, 63);
+            this.comboBox_repairtoolsIn_lifetype.Location = new System.Drawing.Point(671, 63);
             this.comboBox_repairtoolsIn_lifetype.Name = "comboBox_repairtoolsIn_lifetype";
             this.comboBox_repairtoolsIn_lifetype.Size = new System.Drawing.Size(73, 25);
             this.comboBox_repairtoolsIn_lifetype.TabIndex = 44;
@@ -1418,7 +1419,7 @@
             "正常",
             "待修",
             "报废"});
-            this.comboBox_repairtoolsIn_functionState.Location = new System.Drawing.Point(664, 19);
+            this.comboBox_repairtoolsIn_functionState.Location = new System.Drawing.Point(671, 19);
             this.comboBox_repairtoolsIn_functionState.Name = "comboBox_repairtoolsIn_functionState";
             this.comboBox_repairtoolsIn_functionState.Size = new System.Drawing.Size(73, 25);
             this.comboBox_repairtoolsIn_functionState.TabIndex = 40;
@@ -1438,7 +1439,7 @@
             // 
             this.textBox_repairtoolsIn_shelf.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_repairtoolsIn_shelf.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_repairtoolsIn_shelf.Location = new System.Drawing.Point(812, 105);
+            this.textBox_repairtoolsIn_shelf.Location = new System.Drawing.Point(821, 105);
             this.textBox_repairtoolsIn_shelf.Name = "textBox_repairtoolsIn_shelf";
             this.textBox_repairtoolsIn_shelf.Size = new System.Drawing.Size(73, 23);
             this.textBox_repairtoolsIn_shelf.TabIndex = 51;
@@ -1447,7 +1448,7 @@
             // 
             this.textBox_repairtoolsIn_area.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_repairtoolsIn_area.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_repairtoolsIn_area.Location = new System.Drawing.Point(664, 106);
+            this.textBox_repairtoolsIn_area.Location = new System.Drawing.Point(671, 106);
             this.textBox_repairtoolsIn_area.Name = "textBox_repairtoolsIn_area";
             this.textBox_repairtoolsIn_area.Size = new System.Drawing.Size(73, 23);
             this.textBox_repairtoolsIn_area.TabIndex = 50;
@@ -1457,7 +1458,7 @@
             this.textBox_repairtoolsIn_lifespan.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_repairtoolsIn_lifespan.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_repairtoolsIn_lifespan.ForeColor = System.Drawing.Color.Gray;
-            this.textBox_repairtoolsIn_lifespan.Location = new System.Drawing.Point(812, 64);
+            this.textBox_repairtoolsIn_lifespan.Location = new System.Drawing.Point(821, 64);
             this.textBox_repairtoolsIn_lifespan.Name = "textBox_repairtoolsIn_lifespan";
             this.textBox_repairtoolsIn_lifespan.Size = new System.Drawing.Size(73, 23);
             this.textBox_repairtoolsIn_lifespan.TabIndex = 45;
@@ -1470,10 +1471,10 @@
             // 
             this.textBox_repairtoolsIn_contact.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_repairtoolsIn_contact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_repairtoolsIn_contact.Location = new System.Drawing.Point(474, 106);
+            this.textBox_repairtoolsIn_contact.Location = new System.Drawing.Point(449, 106);
             this.textBox_repairtoolsIn_contact.MaxLength = 11;
             this.textBox_repairtoolsIn_contact.Name = "textBox_repairtoolsIn_contact";
-            this.textBox_repairtoolsIn_contact.Size = new System.Drawing.Size(103, 23);
+            this.textBox_repairtoolsIn_contact.Size = new System.Drawing.Size(141, 23);
             this.textBox_repairtoolsIn_contact.TabIndex = 49;
             this.textBox_repairtoolsIn_contact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_repairtoolsIn_contact_KeyPress);
             // 
@@ -1481,7 +1482,7 @@
             // 
             this.textBox_repairtoolsIn_name.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_repairtoolsIn_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_repairtoolsIn_name.Location = new System.Drawing.Point(271, 106);
+            this.textBox_repairtoolsIn_name.Location = new System.Drawing.Point(260, 106);
             this.textBox_repairtoolsIn_name.Name = "textBox_repairtoolsIn_name";
             this.textBox_repairtoolsIn_name.Size = new System.Drawing.Size(112, 23);
             this.textBox_repairtoolsIn_name.TabIndex = 48;
@@ -1516,7 +1517,7 @@
             // 
             this.textBox_repairtoolsIn_manufacturer.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_repairtoolsIn_manufacturer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox_repairtoolsIn_manufacturer.Location = new System.Drawing.Point(271, 64);
+            this.textBox_repairtoolsIn_manufacturer.Location = new System.Drawing.Point(260, 64);
             this.textBox_repairtoolsIn_manufacturer.Name = "textBox_repairtoolsIn_manufacturer";
             this.textBox_repairtoolsIn_manufacturer.Size = new System.Drawing.Size(112, 23);
             this.textBox_repairtoolsIn_manufacturer.TabIndex = 42;
@@ -1535,7 +1536,7 @@
             // 
             this.label_repairtoolsIn_shelf.AutoSize = true;
             this.label_repairtoolsIn_shelf.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_shelf.Location = new System.Drawing.Point(772, 108);
+            this.label_repairtoolsIn_shelf.Location = new System.Drawing.Point(781, 108);
             this.label_repairtoolsIn_shelf.Name = "label_repairtoolsIn_shelf";
             this.label_repairtoolsIn_shelf.Size = new System.Drawing.Size(44, 17);
             this.label_repairtoolsIn_shelf.TabIndex = 33;
@@ -1545,7 +1546,7 @@
             // 
             this.label_repairtoolsIn_functionState.AutoSize = true;
             this.label_repairtoolsIn_functionState.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_functionState.Location = new System.Drawing.Point(591, 23);
+            this.label_repairtoolsIn_functionState.Location = new System.Drawing.Point(598, 23);
             this.label_repairtoolsIn_functionState.Name = "label_repairtoolsIn_functionState";
             this.label_repairtoolsIn_functionState.Size = new System.Drawing.Size(68, 17);
             this.label_repairtoolsIn_functionState.TabIndex = 32;
@@ -1555,7 +1556,7 @@
             // 
             this.label_repairtoolsIn_area.AutoSize = true;
             this.label_repairtoolsIn_area.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_area.Location = new System.Drawing.Point(614, 109);
+            this.label_repairtoolsIn_area.Location = new System.Drawing.Point(621, 109);
             this.label_repairtoolsIn_area.Name = "label_repairtoolsIn_area";
             this.label_repairtoolsIn_area.Size = new System.Drawing.Size(44, 17);
             this.label_repairtoolsIn_area.TabIndex = 30;
@@ -1565,7 +1566,7 @@
             // 
             this.label_repairtoolsIn_lifetype.AutoSize = true;
             this.label_repairtoolsIn_lifetype.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_lifetype.Location = new System.Drawing.Point(590, 67);
+            this.label_repairtoolsIn_lifetype.Location = new System.Drawing.Point(597, 67);
             this.label_repairtoolsIn_lifetype.Name = "label_repairtoolsIn_lifetype";
             this.label_repairtoolsIn_lifetype.Size = new System.Drawing.Size(68, 17);
             this.label_repairtoolsIn_lifetype.TabIndex = 29;
@@ -1584,7 +1585,7 @@
             // 
             this.label__repairtoolsIn_lifespan.AutoSize = true;
             this.label__repairtoolsIn_lifespan.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label__repairtoolsIn_lifespan.Location = new System.Drawing.Point(748, 67);
+            this.label__repairtoolsIn_lifespan.Location = new System.Drawing.Point(757, 67);
             this.label__repairtoolsIn_lifespan.Name = "label__repairtoolsIn_lifespan";
             this.label__repairtoolsIn_lifespan.Size = new System.Drawing.Size(68, 17);
             this.label__repairtoolsIn_lifespan.TabIndex = 28;
@@ -1596,7 +1597,7 @@
             this.textBox_repairtoolsIn_toolName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_repairtoolsIn_toolName.Location = new System.Drawing.Point(413, 20);
             this.textBox_repairtoolsIn_toolName.Name = "textBox_repairtoolsIn_toolName";
-            this.textBox_repairtoolsIn_toolName.Size = new System.Drawing.Size(164, 23);
+            this.textBox_repairtoolsIn_toolName.Size = new System.Drawing.Size(177, 23);
             this.textBox_repairtoolsIn_toolName.TabIndex = 37;
             // 
             // textBox_repairtoolsIn_code
@@ -1612,17 +1613,17 @@
             // 
             this.label_repairtoolsIn_repairDate.AutoSize = true;
             this.label_repairtoolsIn_repairDate.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_repairDate.Location = new System.Drawing.Point(404, 67);
+            this.label_repairtoolsIn_repairDate.Location = new System.Drawing.Point(386, 67);
             this.label_repairtoolsIn_repairDate.Name = "label_repairtoolsIn_repairDate";
             this.label_repairtoolsIn_repairDate.Size = new System.Drawing.Size(68, 17);
             this.label_repairtoolsIn_repairDate.TabIndex = 27;
-            this.label_repairtoolsIn_repairDate.Text = "维修日期：";
+            this.label_repairtoolsIn_repairDate.Text = "维修时间：";
             // 
             // label_repairtoolsIn_contact
             // 
             this.label_repairtoolsIn_contact.AutoSize = true;
             this.label_repairtoolsIn_contact.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_contact.Location = new System.Drawing.Point(404, 109);
+            this.label_repairtoolsIn_contact.Location = new System.Drawing.Point(385, 109);
             this.label_repairtoolsIn_contact.Name = "label_repairtoolsIn_contact";
             this.label_repairtoolsIn_contact.Size = new System.Drawing.Size(68, 17);
             this.label_repairtoolsIn_contact.TabIndex = 26;
@@ -1632,7 +1633,7 @@
             // 
             this.label_repairtoolsIn_name.AutoSize = true;
             this.label_repairtoolsIn_name.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_name.Location = new System.Drawing.Point(230, 109);
+            this.label_repairtoolsIn_name.Location = new System.Drawing.Point(219, 109);
             this.label_repairtoolsIn_name.Name = "label_repairtoolsIn_name";
             this.label_repairtoolsIn_name.Size = new System.Drawing.Size(44, 17);
             this.label_repairtoolsIn_name.TabIndex = 25;
@@ -1652,7 +1653,7 @@
             // 
             this.label_repairtoolsIn_manufacturer.AutoSize = true;
             this.label_repairtoolsIn_manufacturer.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_repairtoolsIn_manufacturer.Location = new System.Drawing.Point(228, 67);
+            this.label_repairtoolsIn_manufacturer.Location = new System.Drawing.Point(217, 67);
             this.label_repairtoolsIn_manufacturer.Name = "label_repairtoolsIn_manufacturer";
             this.label_repairtoolsIn_manufacturer.Size = new System.Drawing.Size(44, 17);
             this.label_repairtoolsIn_manufacturer.TabIndex = 22;
@@ -1749,10 +1750,10 @@
             this.textBox_outByTools_operatorContact.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_outByTools_operatorContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_outByTools_operatorContact.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.textBox_outByTools_operatorContact.Location = new System.Drawing.Point(436, 132);
+            this.textBox_outByTools_operatorContact.Location = new System.Drawing.Point(449, 132);
             this.textBox_outByTools_operatorContact.Multiline = true;
             this.textBox_outByTools_operatorContact.Name = "textBox_outByTools_operatorContact";
-            this.textBox_outByTools_operatorContact.Size = new System.Drawing.Size(161, 23);
+            this.textBox_outByTools_operatorContact.Size = new System.Drawing.Size(141, 23);
             this.textBox_outByTools_operatorContact.TabIndex = 92;
             // 
             // textBox_outByTools_usage
@@ -1771,10 +1772,10 @@
             this.textBox_outByTools_borrowerContact.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_outByTools_borrowerContact.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_outByTools_borrowerContact.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.textBox_outByTools_borrowerContact.Location = new System.Drawing.Point(436, 90);
+            this.textBox_outByTools_borrowerContact.Location = new System.Drawing.Point(449, 90);
             this.textBox_outByTools_borrowerContact.Multiline = true;
             this.textBox_outByTools_borrowerContact.Name = "textBox_outByTools_borrowerContact";
-            this.textBox_outByTools_borrowerContact.Size = new System.Drawing.Size(161, 23);
+            this.textBox_outByTools_borrowerContact.Size = new System.Drawing.Size(141, 23);
             this.textBox_outByTools_borrowerContact.TabIndex = 91;
             // 
             // comboBox_outByTools_functionState
@@ -1840,9 +1841,9 @@
             this.textBox_outByTools_toolName.BackColor = System.Drawing.SystemColors.Window;
             this.textBox_outByTools_toolName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_outByTools_toolName.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.textBox_outByTools_toolName.Location = new System.Drawing.Point(436, 18);
+            this.textBox_outByTools_toolName.Location = new System.Drawing.Point(449, 18);
             this.textBox_outByTools_toolName.Name = "textBox_outByTools_toolName";
-            this.textBox_outByTools_toolName.Size = new System.Drawing.Size(161, 23);
+            this.textBox_outByTools_toolName.Size = new System.Drawing.Size(141, 23);
             this.textBox_outByTools_toolName.TabIndex = 85;
             // 
             // textBox_outByTools_code
@@ -1858,12 +1859,12 @@
             // dateTimePicker_outByTools_borrowTime
             // 
             this.dateTimePicker_outByTools_borrowTime.CalendarFont = new System.Drawing.Font("微软雅黑", 7.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.dateTimePicker_outByTools_borrowTime.CustomFormat = "yyyy-MM-dd HH:mm:ss";
+            this.dateTimePicker_outByTools_borrowTime.CustomFormat = "yyyy-MM-dd HH:mm";
             this.dateTimePicker_outByTools_borrowTime.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.dateTimePicker_outByTools_borrowTime.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker_outByTools_borrowTime.Location = new System.Drawing.Point(436, 53);
+            this.dateTimePicker_outByTools_borrowTime.Location = new System.Drawing.Point(449, 53);
             this.dateTimePicker_outByTools_borrowTime.Name = "dateTimePicker_outByTools_borrowTime";
-            this.dateTimePicker_outByTools_borrowTime.Size = new System.Drawing.Size(162, 23);
+            this.dateTimePicker_outByTools_borrowTime.Size = new System.Drawing.Size(141, 23);
             this.dateTimePicker_outByTools_borrowTime.TabIndex = 81;
             // 
             // textBox_outByTools_borrowLine
@@ -1925,6 +1926,8 @@
             this.textBox_outByTools_operator.TabIndex = 76;
             this.textBox_outByTools_operator.Text = "员工编号 ";
             this.textBox_outByTools_operator.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_outByTools_operator.Enter += new System.EventHandler(this.textBox_outByTools_operator_Enter);
+            this.textBox_outByTools_operator.Leave += new System.EventHandler(this.textBox_outByTools_operator_Leave);
             // 
             // textBox_outByTools_borrower
             // 
@@ -1941,6 +1944,8 @@
             this.textBox_outByTools_borrower.TabIndex = 75;
             this.textBox_outByTools_borrower.Text = "员工编号 ";
             this.textBox_outByTools_borrower.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBox_outByTools_borrower.Enter += new System.EventHandler(this.textBox_outByTools_borrower_Enter);
+            this.textBox_outByTools_borrower.Leave += new System.EventHandler(this.textBox_outByTools_borrower_Leave);
             // 
             // textBox_outByTools_materialNumber
             // 
@@ -2016,7 +2021,7 @@
             // 
             this.label_outByTools_operatorContact.AutoSize = true;
             this.label_outByTools_operatorContact.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_outByTools_operatorContact.Location = new System.Drawing.Point(372, 136);
+            this.label_outByTools_operatorContact.Location = new System.Drawing.Point(385, 136);
             this.label_outByTools_operatorContact.Name = "label_outByTools_operatorContact";
             this.label_outByTools_operatorContact.Size = new System.Drawing.Size(68, 17);
             this.label_outByTools_operatorContact.TabIndex = 56;
@@ -2036,7 +2041,7 @@
             // 
             this.label_outByTools_borrowTime.AutoSize = true;
             this.label_outByTools_borrowTime.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_outByTools_borrowTime.Location = new System.Drawing.Point(372, 56);
+            this.label_outByTools_borrowTime.Location = new System.Drawing.Point(385, 56);
             this.label_outByTools_borrowTime.Name = "label_outByTools_borrowTime";
             this.label_outByTools_borrowTime.Size = new System.Drawing.Size(68, 17);
             this.label_outByTools_borrowTime.TabIndex = 55;
@@ -2066,7 +2071,7 @@
             // 
             this.label_outByTools_borrowContact.AutoSize = true;
             this.label_outByTools_borrowContact.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_outByTools_borrowContact.Location = new System.Drawing.Point(372, 93);
+            this.label_outByTools_borrowContact.Location = new System.Drawing.Point(385, 93);
             this.label_outByTools_borrowContact.Name = "label_outByTools_borrowContact";
             this.label_outByTools_borrowContact.Size = new System.Drawing.Size(68, 17);
             this.label_outByTools_borrowContact.TabIndex = 54;
@@ -2106,12 +2111,14 @@
             // 
             this.button_outByTools_Clear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.button_outByTools_Clear.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_outByTools_Clear.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.button_outByTools_Clear.Location = new System.Drawing.Point(101, 174);
             this.button_outByTools_Clear.Name = "button_outByTools_Clear";
             this.button_outByTools_Clear.Size = new System.Drawing.Size(64, 27);
             this.button_outByTools_Clear.TabIndex = 64;
             this.button_outByTools_Clear.Text = "清 空";
             this.button_outByTools_Clear.UseVisualStyleBackColor = false;
+            this.button_outByTools_Clear.Click += new System.EventHandler(this.button_outByTools_Clear_Click);
             // 
             // label_outByTools_materialNumber
             // 
@@ -2127,18 +2134,19 @@
             // 
             this.button_outByTools_Enter.BackColor = System.Drawing.Color.Lime;
             this.button_outByTools_Enter.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button_outByTools_Enter.Font = new System.Drawing.Font("微软雅黑", 9F);
             this.button_outByTools_Enter.Location = new System.Drawing.Point(19, 174);
             this.button_outByTools_Enter.Name = "button_outByTools_Enter";
             this.button_outByTools_Enter.Size = new System.Drawing.Size(63, 27);
             this.button_outByTools_Enter.TabIndex = 65;
-            this.button_outByTools_Enter.Text = "确 定";
+            this.button_outByTools_Enter.Text = "出  库";
             this.button_outByTools_Enter.UseVisualStyleBackColor = false;
             // 
             // label_outByTools_toolName
             // 
             this.label_outByTools_toolName.AutoSize = true;
             this.label_outByTools_toolName.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.label_outByTools_toolName.Location = new System.Drawing.Point(372, 20);
+            this.label_outByTools_toolName.Location = new System.Drawing.Point(385, 20);
             this.label_outByTools_toolName.Name = "label_outByTools_toolName";
             this.label_outByTools_toolName.Size = new System.Drawing.Size(68, 17);
             this.label_outByTools_toolName.TabIndex = 49;
@@ -2154,6 +2162,14 @@
             this.label_outByTools_code.TabIndex = 48;
             this.label_outByTools_code.Text = "编码：";
             // 
+            // panel_scrapTools
+            // 
+            this.panel_scrapTools.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_scrapTools.Location = new System.Drawing.Point(71, 31);
+            this.panel_scrapTools.Name = "panel_scrapTools";
+            this.panel_scrapTools.Size = new System.Drawing.Size(1059, 506);
+            this.panel_scrapTools.TabIndex = 94;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
@@ -2161,10 +2177,11 @@
             this.BackColor = System.Drawing.Color.Lavender;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1130, 562);
-            this.Controls.Add(this.panel_toolsReturn);
-            this.Controls.Add(this.panel_newtoolsIn);
+            this.Controls.Add(this.panel_scrapTools);
             this.Controls.Add(this.panel_outByTools);
             this.Controls.Add(this.panel_repairtoolsIn);
+            this.Controls.Add(this.panel_toolsReturn);
+            this.Controls.Add(this.panel_newtoolsIn);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.statusStrip1);
@@ -2273,7 +2290,7 @@
         public System.Windows.Forms.ListView listView_toolsReturn;
         public System.Windows.Forms.ListView listView_repairtoolsIn;
         public System.Windows.Forms.CheckBox checkBox_newToolsIn_batch;
-        public System.Windows.Forms.TextBox textBox_newToolsIn_numberEnd;
+        public System.Windows.Forms.TextBox textBox_newToolsIn_endCode;
         public System.Windows.Forms.TextBox textBox_newToolsIn_code;
         public System.Windows.Forms.TextBox textBox_newToolsIn_toolName;
         public System.Windows.Forms.TextBox textBox_newToolsIn_materialNumber;
@@ -2364,6 +2381,7 @@
         private System.Windows.Forms.Label label_outByTools_usage;
         public System.Windows.Forms.Panel panel_outByTools;
         public System.Windows.Forms.ListView listView_outByTools;
+        private System.Windows.Forms.Panel panel_scrapTools;
     }
 }
 

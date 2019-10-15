@@ -32,7 +32,7 @@ namespace nsDBConnection
             password = "1234";
 
             string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            connectionString = "SERVER=" + server + ";" + "DATABASE=" + database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";"+"Sslmode = None";
             connection = new MySqlConnection(connectionString);
         }
 
@@ -107,6 +107,7 @@ namespace nsDBConnection
                 catch(MySqlException ex)
                 {
                     MessageBox.Show(ex.Message);
+                    this.Close();
                     return false;
                 }
                 
@@ -120,48 +121,70 @@ namespace nsDBConnection
         }
 
         //Update statement
-        public void Update(String str)
+        public bool Update(String str)
         {
             string query = str;// "UPDATE tableinfo SET id='22', name='Joe', age='22' WHERE name='John Smith'";
 
             //Open connection
             if (this.Open() == true)
             {
-                //create mysql command
-                MySqlCommand cmd = new MySqlCommand();
-                //Assign the query using CommandText
-                cmd.CommandText = query;
-                //Assign the connection using Connection
-                cmd.Connection = connection;
+                try
+                {
+                    //create mysql command
+                    MySqlCommand cmd = new MySqlCommand();
+                    //Assign the query using CommandText
+                    cmd.CommandText = query;
+                    //Assign the connection using Connection
+                    cmd.Connection = connection;
 
-                //Execute query
-                cmd.ExecuteNonQuery();
+                    //Execute query
+                    cmd.ExecuteNonQuery();
 
-                //close connection
-                this.Close();
+                    //close connection
+                    this.Close();
+                    return true;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    this.Close();
+                    return false;
+                }
             }
             else
             {
                 Program.mw.statusStripStatusLabel3.BackColor = Color.Red;
                 MessageBox.Show("数据库连接失败!");
+                return false;
             }
         }
 
         //Delete statement
-        public void Delete(String str)
+        public bool Delete(String str)
         {
             string query = str;// "DELETE FROM tableinfo WHERE id=" + id;
 
             if (this.Open() == true)
             {
-                MySqlCommand cmd = new MySqlCommand(query, connection);
-                cmd.ExecuteNonQuery();
-                this.Close();
+                try
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
+                    cmd.ExecuteNonQuery();
+                    this.Close();
+                    return true;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    this.Close();
+                    return false;
+                }
             }
             else
             {
                 Program.mw.statusStripStatusLabel3.BackColor = Color.Red;
                 MessageBox.Show("数据库连接失败!");
+                return false;
             }
         }
 
@@ -175,15 +198,24 @@ namespace nsDBConnection
             //Open connection
             if (this.Open() == true)
             {
-                //Create Command
-                mda = new MySqlDataAdapter(query, connection);
-                mda.Fill(ds);
-                
-                //close Connection
-                this.Close();
+                try
+                {
+                    //Create Command
+                    mda = new MySqlDataAdapter(query, connection);
+                    mda.Fill(ds);
 
-                //return list to be displayed
-                return ds;
+                    //close Connection
+                    this.Close();
+
+                    //return list to be displayed
+                    return ds;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    this.Close();
+                    return ds;
+                }
             }
             else
             {
@@ -202,16 +234,26 @@ namespace nsDBConnection
             //Open Connection
             if (this.Open() == true)
             {
-                //Create Mysql Command
-                MySqlCommand cmd = new MySqlCommand(query, connection);
+                try
+                {
+                    //Create Mysql Command
+                    MySqlCommand cmd = new MySqlCommand(query, connection);
 
-                //ExecuteScalar will return one value
-                count = int.Parse(cmd.ExecuteScalar() + "");
+                    //ExecuteScalar will return one value
+                    count = int.Parse(cmd.ExecuteScalar() + "");
 
-                //close Connection
-                this.Close();
+                    //close Connection
+                    this.Close();
 
-                return count;
+                    return count;
+                }
+                catch (MySqlException ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    this.Close();
+                    return count;
+                }
+
             }
             else
             {
